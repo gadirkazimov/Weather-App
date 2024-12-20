@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/screens/city_screen.dart';
+import 'package:weather_app/services/weather.dart';
 import '../utilities/constants.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -12,11 +14,14 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-
+  WeatherModel weatherModel = WeatherModel();
   int? temprerature;
   String? name;
   String? country;
   String? icon;
+  double? speed;
+  int? humidity;
+  String? condition;
 
   @override
   void initState() {
@@ -24,13 +29,17 @@ class _LocationScreenState extends State<LocationScreen> {
     updateUI(widget.locationWeather);
   }
 
-  void updateUI (dynamic locationWeather) {
-
-      double temp = locationWeather['current']['temp_c'];
-      temprerature = temp.toInt();
-      name = locationWeather['location']['name'];
-      country = locationWeather['location']['country'];
-      icon = locationWeather['current']['condition']['icon'];
+  void updateUI (dynamic weatherData) {
+      setState(() {
+        double temp = weatherData['current']['temp_c'];
+        temprerature = temp.toInt();
+        name = weatherData['location']['name'];
+        country = weatherData['location']['country'];
+        icon = weatherData['current']['condition']['icon'];
+        speed = weatherData['current']['wind_kph'];
+        humidity = weatherData['current']['humidity'];
+        condition = weatherData['current']['condition']['text'];
+      });
 
   }
 
@@ -56,14 +65,23 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      var weatherData = await weatherModel.getLocationWeather();
+                      updateUI(weatherData);
+                    },
                     child: const Icon(
                       Icons.near_me,
                       size: 50.0,
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                     var typedName = await Navigator.push(context, MaterialPageRoute(builder: (context) => CityScreen()));
+                     if (typedName != null) {
+                      var weatherData = await weatherModel.getCityWeather(typedName);
+                       updateUI(weatherData);
+                     }
+                    },
                     child: const Icon(
                       Icons.location_city,
                       size: 50.0,
@@ -71,7 +89,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                 ],
               ),
-             Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Row(
                   children: <Widget>[
@@ -79,12 +97,31 @@ class _LocationScreenState extends State<LocationScreen> {
                       '$temprerature°',
                       style: kTempTextStyle,
                     ),
-                    Image(image: NetworkImage('https:' + icon!))
+                    Column(
+                      children: [
+                        Image(image: NetworkImage('https:' + icon!,), ),
+                        Text('$condition', style: kConditionTextStyle,)
+                      ],
+                    )
 
                   ],
                 ),
               ),
-               Padding(
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Wind spped: $speed',style: kPropertyTextStyle
+
+                    ),
+                    Text('Humadity: $humidity', style: kPropertyTextStyle)
+
+                  ],
+                ),
+              ),
+              Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
                   "$country,$name!",

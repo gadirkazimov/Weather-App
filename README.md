@@ -9,8 +9,8 @@ The Weather App provides real-time weather updates for any location worldwide. F
 
 ## Key Features
 - Real-time weather updates for your location.
-- Detailed forecasts, including temperature, humidity, wind speed, and precipitation.
-- Search and save your favorite locations.
+- Detailed forecasts, including temperature, humidity and wind speed.
+- Search your favorite locations.
 - Clean and user-friendly interface.
 
 ---
@@ -27,9 +27,10 @@ Displays the current weather for your location.
 ![Search Screen](images/screenshot-2.png)
 Easily search for weather updates for different cities.
 
-### Detailed Forecast
-![Detailed Forecast](images/screenshot-3.png)
-Get an hour-by-hour and 7-day weather forecast.
+
+### Search Screen
+[Search Screen](images/screenshot-3.png)
+
 
 ---
 
