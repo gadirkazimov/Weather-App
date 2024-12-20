@@ -17,19 +17,26 @@ The Weather App provides real-time weather updates for any location worldwide. F
 
 ## Screenshots
 
-Here are some screenshots to give you a sneak peek into the app's interface. Replace the placeholders below with actual images once available:
+Here are some screenshots to give you a sneak peek into the app's interface.
 
-### Home Screen
-![Home Screen](images/screenshot-1.png)
-Displays the current weather for your location.
+Below are some screenshots of the current version of the app:
 
-### Search Screen
-![Search Screen](images/screenshot-2.png)
-Easily search for weather updates for different cities.
-
-
-### Search Screen
-![Search Screen](images/screenshot-3.png)
+<table style="border-spacing: 20px; padding: 10px;">
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/screenshot-1.png" alt="Main Page - Popular Foods" width="200">
+      <p>Displays the current weather for your location.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/screenshot-2.png" alt="Popular Food Detail Page" width="200">
+      <p>Easily search for weather updates for different cities.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/screenshot-3.png" alt="Recommended Food Detail Page" width="200">
+      <p>Search page detailed view</p>
+    </td>
+  </tr>
+</table>
 
 
 ---
