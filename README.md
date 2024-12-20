@@ -23,15 +23,15 @@ Below are some screenshots of the current version of the app:
 
 <table style="border-spacing: 20px; padding: 10px;">
   <tr>
-    <td style="text-align: center; margin: 20px;">
+    <td style="text-align: center; display: flex; justify-content: center; margin: 20px;">
       <img src="images/screenshot-1.png" alt="Main Page - Popular Foods" width="200" style="display: block; margin: 0 auto;">
       <p style="margin-top: 10px; font-size: 14px; color: #333;">Displays the current weather for your location.</p>
     </td>
-    <td style="text-align: center; margin: 20px;">
+    <td style="text-align: center; display: flex; justify-content: center; margin: 20px;">
       <img src="images/screenshot-2.png" alt="Popular Food Detail Page" width="200" style="display: block; margin: 0 auto;">
       <p style="margin-top: 10px; font-size: 14px; color: #333;">Easily search for weather updates for different cities.</p>
     </td>
-    <td style="text-align: center; margin: 20px;">
+    <td style="text-align: center; display: flex; justify-content: center; margin: 20px;">
       <img src="images/screenshot-3.png" alt="Recommended Food Detail Page" width="200" style="display: block; margin: 0 auto;">
       <p style="margin-top: 10px; font-size: 14px; color: #333;">Search page detailed view</p>
     </td>
