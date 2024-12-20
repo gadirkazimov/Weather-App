@@ -29,7 +29,7 @@ Easily search for weather updates for different cities.
 
 
 ### Search Screen
-[Search Screen](images/screenshot-3.png)
+![Search Screen](images/screenshot-3.png)
 
 
 ---
